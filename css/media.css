@@ -1,0 +1,60 @@
+/* Стили для планшетов */
+@media (max-width: 768px) {
+    .header__container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header__nav {
+        gap: 20px;
+    }
+    
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Стили для мобильных телефонов */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .header__nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .main-title {
+        font-size: 1.8rem;
+    }
+    
+    /* КРИТИЧЕСКИЙ ФИКС: предотвращает исчезновение блоков при скролле */
+    body, html {
+        height: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    body {
+        display: block; /* Меняем flex на block для мобильных */
+    }
+    
+    .wrapper { /* Если у вас есть .wrapper в исходном коде */
+        min-height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main {
+        flex-grow: 1;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+    }
+}

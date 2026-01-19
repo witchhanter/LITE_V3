@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ерофеев Игорь | Главная</title>
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <!-- Предзагрузка шрифтов для оптимизации -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Иконка сайта (фавикон) -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="header__logo"></a>
+            <!-- МойСайт(вставить в <a>) -->
+            <nav class="header__nav">
+                <a href="index.html" class="header__link active">Главная</a>
+                <a href="contacts.html" class="header__link">Контакты</a>
+                <a href="projects.html" class="header__link">Мои проекты</a>
+            </nav>
+            <!-- Кнопка переключения темы (светлая/темная) -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <main class="main">
+        <div class="container">
+            <h1 class="main-title">Привет! Я - Ерофеев Игорь, 16-летний frontend-разработчик из Карелии. </h1>
+            <p>Создаю современные сайты, изучаю JavaScript и уже неплохо знаю CSS3 и HTML5. Здесь собраны мои лучшие работы — от простых лендингов до интерактивных приложений.</p>
+            <p>Люблю, когда дизайн дышит, а код работает идеально.</p>
+            <!-- Пример секции -->
+            <section class="features">
+                <!-- <div class="feature-card">
+                    <h3>Telegram</h3>
+                    <p>Теперь переходы между страницами не будут зависать.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Gmail</h3>
+                    <p>Сайт идеально отображается на любом устройстве.</p>
+                </div> -->
+                <!-- <div class="feature-card">
+                    <h3>Github</h3>
+                    <p>Все ресурсы загружаются быстро и эффективно.</p>
+                </div> -->
+                <a href="https://witchhanterr.tilda.ws/portfolio" class="feature-card" style="text-decoration: none; color: white;" target="_blank">
+                    <h3>Моё портфолио на Tilda</h3>
+                    <!-- <p>Напишите мне в Telegram</p> -->
+                    <p>> клик <</p>
+                </a>
+                <a href="projects.html" class="feature-card" style="text-decoration: none; color: white;">
+                    <h3>Мои проекты</h3>
+                    <p>> клик <</p>
+                </a>
+                <!-- <a href="https://mail.google.com/mail/?view=cm&fs=1&to=witchhanter999@gmail.com" class="feature-card" style="text-decoration: none; color: white;" target="_blank">
+                    <h3>Напишите мне на email (gmail)</h3>
+                    <p>> Пишите письма <</p>
+                </a> -->
+            </section>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026. ЕИА. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Подключение основного JavaScript файла -->
+    <script src="js/main.js" defer></script>
+</body>
+</html>
