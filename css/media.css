@@ -367,3 +367,10 @@
         font-size: 16px !important; /* Отключает автоматическое увеличение в iOS */
     }
 }
+
+@media (max-width: 768px) {
+    .features > a.feature-card {
+        margin-bottom: 0 !important;
+        padding-bottom: 5px !important;
+    }
+}
