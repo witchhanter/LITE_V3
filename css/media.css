@@ -177,15 +177,42 @@
        ОБЩИЕ ПРАВКИ ДЛЯ ВСЕХ СТРАНИЦ
        =============================== */
     /* 1. Обнуляем отступы для вложенных таблиц и элементов управления */
-    .feature-card table,
-    .feature-card tr,
-    .feature-card td {
-        display: block;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        border: none;
-    }
+    /* =================================================================
+   СПЕЦИФИЧНЫЕ СТИЛИ ДЛЯ ТАБЛИЦ ВНУТРИ КАРТОЧЕК (ТОЛЬКО projects.html)
+   ================================================================= */
+/* Стиль применяется только к table, которые находятся ВНУТРИ .feature-card, 
+   но сам .feature-card НЕ является ссылкой (<a>) */
+.feature-card:not(a) table,
+.feature-card:not(a) tr,
+.feature-card:not(a) td {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Контейнер для кнопок внутри карточки (только для карточек-блоков) */
+.feature-card:not(a) .feature-card-button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Стили для кнопок внутри карточек-блоков (projects.html) */
+.feature-card:not(a) .button {
+    display: block;
+    width: 100%;
+    padding: 16px 20px;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 12px;
+    min-height: 54px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
 
     /* 2. Контейнер для кнопок внутри карточки */
     .feature-card-button {
