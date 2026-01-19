@@ -1,59 +1,342 @@
+/* ===============================
+   БАЗОВЫЕ ИСПРАВЛЕНИЯ ДЛЯ МОБИЛЬНЫХ
+   =============================== */
 @media (max-width: 768px) {
+    /* 1. Исправляем "ломаную" высоту body */
+    body {
+        display: block; /* Убираем flex, чтобы контент не сжимался */
+        min-height: 100vh;
+        overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+    }
+
+    /* 2. Делаем основной контент прокручиваемым, если нужно */
+    .main {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    /* 3. Увеличиваем базовый размер шрифта для читаемости */
+    body, p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* 4. Обеспечиваем безопасные отступы от краев экрана */
+    .container {
+        padding-left: max(15px, env(safe-area-inset-left));
+        padding-right: max(15px, env(safe-area-inset-right));
+    }
+
+    /* ===============================
+       ОПТИМИЗАЦИЯ ШАПКИ (HEADER)
+       =============================== */
     .header__container {
         flex-direction: column;
-        gap: 15px;
-    }
-    
-    .header__nav {
         gap: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
     }
-    
-    .main-title {
+
+    .header__nav {
+        gap: 25px; /* Увеличиваем расстояние между пунктами меню */
+        flex-wrap: wrap; /* Позволяем пунктам меню переноситься */
+        justify-content: center;
+    }
+
+    /* 5. Делаем ссылки в меню удобными для касания пальцем */
+    .header__link {
+        padding: 12px 16px; /* Создаем большую зону для нажатия */
+        font-size: 1.1rem;
+    }
+
+    .header__logo {
         font-size: 2rem;
+        text-align: center;
     }
-    
+
+    /* ===============================
+       ОПТИМИЗАЦИЯ ГЛАВНОГО ЭКРАНА
+       =============================== */
+    /* 6. Уменьшаем и улучшаем главный заголовок */
+    .main-title {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        line-height: 1.3;
+    }
+
+    /* 7. Улучшаем отступы и читаемость основного текста */
+    .main p {
+        text-align: justify;
+        margin-bottom: 1.2rem;
+        max-width: 100%;
+    }
+
+    /* ===============================
+       ОПТИМИЗАЦИЯ КАРТОЧЕК (ГЛАВНЫЕ ССЫЛКИ)
+       =============================== */
     .features {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Одна колонка на мобильных */
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+    /* 8. Превращаем карточку в удобную большую кнопку */
+    .feature-card {
+        display: block; /* Делаем всю карточку кликабельным блоком */
+        padding: 30px 25px;
+        text-align: center;
+        min-height: 120px; /* Гарантируем достаточный размер */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* 9. Увеличиваем размер текста внутри карточек */
+    .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .feature-card p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        opacity: 0.9;
+    }
+
+    /* ===============================
+       ОПТИМИЗАЦИЯ ФУТЕРА
+       =============================== */
+    .footer {
+        padding-top: 20px;
+        padding-bottom: max(20px, env(safe-area-inset-bottom)); /* Учет "челки" на iPhone */
+        font-size: 0.9rem;
     }
 }
 
-/* Стили для мобильных телефонов */
+/* ===============================
+   ДОПОЛНИТЕЛЬНЫЕ ПРАВКИ ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНОВ
+   =============================== */
 @media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
     .header__nav {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
+        gap: 15px;
     }
-    
+
+    .header__link {
+        padding: 10px 14px;
+        font-size: 1rem;
+    }
+
     .main-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
-    
-    /* КРИТИЧЕСКИЙ ФИКС: предотвращает исчезновение блоков при скролле */
-    body, html {
-        height: 100%;
-        overflow-x: hidden;
-        position: relative;
+
+    .feature-card {
+        padding: 25px 20px;
     }
-    
-    body {
-        display: block; /* Меняем flex на block для мобильных */
+
+    .feature-card h3 {
+        font-size: 1.3rem;
     }
-    
-    .wrapper { /* Если у вас есть .wrapper в исходном коде */
-        min-height: 100vh;
-        overflow: hidden;
+}
+
+/* ===============================
+   ОРИЕНТАЦИЯ: АЛЬБОМНАЯ (LANDSCAPE)
+   =============================== */
+@media (max-width: 768px) and (orientation: landscape) {
+    /* 10. Для альбомной ориентации можно сэкономить вертикальное пространство */
+    .header__container {
+        flex-direction: row;
+        gap: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .header__nav {
+        gap: 20px;
+    }
+
+    .main-title {
+        font-size: 1.6rem;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr); /* Две карточки в ряд */
+        gap: 15px;
+    }
+}
+
+/* =================================================================
+   ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ PAGES: projects.html И contacts.html
+   ================================================================= */
+
+@media (max-width: 768px) {
+    /* ===============================
+       ОБЩИЕ ПРАВКИ ДЛЯ ВСЕХ СТРАНИЦ
+       =============================== */
+    /* 1. Обнуляем отступы для вложенных таблиц и элементов управления */
+    .feature-card table,
+    .feature-card tr,
+    .feature-card td {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+
+    /* 2. Контейнер для кнопок внутри карточки */
+    .feature-card-button {
+        display: block;
+        width: 100%;
+        margin-top: 15px; /* Отступ между кнопками */
+    }
+
+    /* 3. Базовая стилизация кнопок на всех страницах */
+    .feature-card .button {
+        display: block; /* Растягиваем на всю ширину */
+        width: 100%;
+        padding: 16px 20px;
+        margin: 10px 0; /* Отступ между кнопками */
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-radius: 12px;
+        min-height: 54px; /* Достаточная высота для касания */
+        text-decoration: none;
+        box-sizing: border-box; /* Чтобы padding не ломал ширину */
+    }
+
+    /* 4. Убираем лишние отступы внутри карточек с таблицами */
+    .feature-card > table {
+        margin-top: 20px;
+    }
+
+    /* ===============================
+       СПЕЦИФИЧНЫЕ ПРАВКИ ДЛЯ projects.html
+       =============================== */
+    /* 5. Исправляем структуру карточек с проектами */
+    .features .feature-card {
+        padding: 25px 20px;
+        text-align: left; /* Текст внутри карточки по левому краю */
+    }
+
+    /* 6. Улучшаем заголовки проектов */
+    .feature-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        line-height: 1.3;
+        color: inherit;
+    }
+
+    /* 7. Оптимизируем описание проектов */
+    .feature-card > p {
+        /* Стиль для описания, которое идет сразу после h2 */
+        font-size: 1.05rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+
+    /* 8. Специальный заголовок для второй секции на projects.html */
+    .main-title[style*="margin-top"] {
+        margin-top: 40px !important; /* Приоритет для мобильных */
+        font-size: 1.6rem;
+    }
+
+    /* ===============================
+       СПЕЦИФИЧНЫЕ ПРАВКИ ДЛЯ contacts.html
+       =============================== */
+    /* 9. Карточки контактов (там где нет таблиц) */
+    .features > a.feature-card {
+        /* Это ссылка-карточка, как на contacts.html и index.html */
+        padding: 30px 25px;
+        text-align: center;
+        min-height: 140px;
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
-    
-    .main {
-        flex-grow: 1;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch; /* Плавный скролл на iOS */
+
+    /* 10. Заголовки в карточках контактов */
+    .features > a.feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    /* 11. Текст в карточках контактов */
+    .features > a.feature-card p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        opacity: 0.9;
+    }
+
+    /* ===============================
+       МЕЛКИЕ УЛУЧШЕНИЯ ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ЭКРАНОВ
+       =============================== */
+    @media (max-width: 480px) {
+        .feature-card .button {
+            padding: 14px 16px;
+            font-size: 1rem;
+            min-height: 50px;
+        }
+
+        .feature-card h2 {
+            font-size: 1.3rem;
+        }
+
+        .features > a.feature-card h3 {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* ===============================
+       АЛЬБОМНАЯ ОРИЕНТАЦИЯ
+       =============================== */
+    @media (max-width: 768px) and (orientation: landscape) {
+        /* 12. В альбомной ориентации делаем кнопки компактнее */
+        .feature-card .button {
+            padding: 12px 15px;
+            min-height: 46px;
+            font-size: 1rem;
+            margin: 8px 0;
+        }
+
+        .features .feature-card {
+            padding: 20px 15px;
+        }
+    }
+}
+
+/* =================================================================
+   ФИНАЛЬНЫЕ ГЛОБАЛЬНЫЕ УЛУЧШЕНИЯ
+   ================================================================= */
+
+/* 13. Улучшаем взаимодействие с кнопками на всех страницах */
+.button {
+    transition: all 0.2s ease;
+    cursor: pointer;
+    user-select: none; /* Предотвращаем выделение текста при быстрых касаниях */
+}
+
+.button:active {
+    transform: scale(0.98); /* Легкая анимация нажатия */
+    opacity: 0.9;
+}
+
+/* 14. Улучшаем фокус-индикаторы для доступности */
+.button:focus-visible {
+    outline: 3px solid rgba(154, 226, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* 15. Фикс для iOS: предотвращаем увеличение при касании к полям ввода (если появятся) */
+@media (max-width: 768px) {
+    input,
+    select,
+    textarea {
+        font-size: 16px !important; /* Отключает автоматическое увеличение в iOS */
     }
 }
