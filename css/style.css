@@ -257,6 +257,8 @@ body.dark-theme {
     transition: background-color 0.3s;
 
     backdrop-filter: blur(35px);
+    /* для сифона */
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .dark-theme .footer {
