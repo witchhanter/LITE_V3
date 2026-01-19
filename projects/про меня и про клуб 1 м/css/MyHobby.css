@@ -1,0 +1,81 @@
+html, body {
+    height: 100%;
+}
+.body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#description {
+    display:inline-flex;
+    height: auto;
+    margin: 10px 10px;
+}
+
+.des {
+    
+    align-items: center;
+    border-radius: 20px;
+    background: #E0FFFF;
+    border: solid 1px black;
+    display: grid;
+ 
+    padding: 20px;
+}
+
+#container {
+    width: 800px;
+    
+    
+}
+h1 {
+    font-size: 150%;
+    text-align: center;
+}
+h2 {
+    font-size: 120%;
+    text-align: center;
+}
+.scale {
+    transition: 1s;
+    opacity: 0.5;
+    margin: 10px 17px 15px;
+   }
+.scale:hover {
+    transform: scale(1.2);
+    opacity: 1;
+    border: 3px solid #00FF00;
+   }
+.table {
+    padding: 50px 50px 50px;
+}
+
+.imag {
+    margin: 10px auto 20px;
+    display: flex;
+}
+body::after {
+    content: "© 2026. ЕИА.";
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.1;
+    z-index: 9998;
+}
+body::before {
+    content: "© 2026. ЕИА.";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(15deg);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s;
+    color: rgba(255, 0, 0, 0.05);
+}
+body:not(:has(::after))::before {
+    opacity: 0.3;
+    z-index: 9999;
+}
