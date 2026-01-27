@@ -1,0 +1,173 @@
+/* менюшка */
+.menu__item_1 {
+    border: 1px solid grey;
+    height: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(100, 91, 91);
+}
+.menu__item_4 {
+    border: 1px solid grey;
+    height: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(100, 91, 91);
+}
+.menu__item_2, .menu__item_3 {
+    border: 1px solid grey;
+    height: 30px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: rgb(100, 91, 91);
+}
+.menu__item_1:hover, .menu__item_2:hover, .menu__item_3:hover,.menu__item_4:hover {
+    /* background-color: rgb(88, 13, 60); */
+    color: black;
+    /* font-weight: bold; */
+    background-color: rgb(238, 238, 238);
+}
+.menu {
+    height: 20%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Полосочки */
+ .inner {
+    background-color: gray;
+    margin: 15px;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+ }
+ .outer {
+    height: 100%;
+    justify-content: center;
+ }
+.outer:hover > .inner {
+    width: 100%;
+}
+.outer > .ease {
+    transition: width 3s ease;
+}
+.outer > .ease-in {
+    transition: width 3s ease-in;
+}
+.outer > .ease-out {
+    transition: width 3s ease-out;
+}
+.outer > .ease-in-out {
+    transition: width 3s ease-in-out;
+}
+.outer > .linear {
+    transition: width 3s linear;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body::after {
+    content: "© 2026. ЕИА.";
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.1;
+    z-index: 9998;
+}
+body::before {
+    content: "© 2026. ЕИА.";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(15deg);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s;
+    color: rgba(255, 0, 0, 0.05);
+}
+body:not(:has(::after))::before {
+    opacity: 0.3;
+    z-index: 9999;
+}
+
+
+
+
+
+
+
+
+
+/* конвертер температур */
+.converter {
+    justify-content: center;
+    text-align: center;
+}
+.table {
+    margin: auto;
+}
+button:hover {
+    background-color: white;
+    transition: 1s;
+}

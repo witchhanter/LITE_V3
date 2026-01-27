@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Горизонтальное меню</title> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+        <div class="menu">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="menu__item_1 menu_item">Главная</td>
+                    <td class="menu__item_2 menu_item">Галерея</td>
+                    <td class="menu__item_3 menu_item">Ссылки</td>
+                    <td class="menu__item_4 menu_item">Контакты</td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+
+
+        <p>
+            <b>Жирный</b>
+            <i>курсивный</i>
+            <u>подчеркнутый</u>
+            <s>зачеркнутый</s>
+            <sup>надстрочный</sup>
+            <sub>подстрочный</sub>
+            текст
+        </p>
+        <p>
+            <b>E</b> = mc<sup>2</sup>
+        </p>
+
+
+
+
+
+
+        <div class="outer">
+            <div class="inner ease">ease</div>
+            <div class="inner ease-in">ease-in</div>
+            <div class="inner ease-out">ease-out</div>
+            <div class="inner ease-in-out">ease-in-out</div>
+            <div class="inner linear">linear</div>
+        </div>
+
+
+
+
+
+
+        <div class="converter">
+            <input type="text" id="input" placeholder="Введите температуру в &#8451" style="border-radius: 4px; border: 1px solid rgb(73, 73, 73);">
+            <table class="table">
+                <tr>
+                    <td><button type="button" class="button" id="conv" style=
+                    "background-color: rgb(51, 51, 51); color: white; border-radius: 4px; border: 1px solid rgb(51, 51, 51); transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);" 
+    onmouseover="this.style.backgroundColor='lightgray'; this.style.color='black';" 
+    onmouseout="this.style.backgroundColor='rgb(51, 51, 51)'; this.style.color='white';">В &#8457!</button></td>
+                    <td><input type="text" id="output" disabled size="13" style="border-radius: 4px; background-color: rgb(204, 199, 174); border: 1px solid rgb(73, 73, 73);"></td>
+                </tr>
+            </table>
+        </div>
+        
+        
+
+        <!-- стоит или нет флажок -->
+        <input type="checkbox" id="toggle">On / Off
+        <script>
+        let checkbox = document.getElementById("toggle");
+        checkbox.addEventListener("click", function() {
+        console.log("Checkbox checked:", checkbox.checked);
+        });
+        </script>
+
+        
+
+
+        <script src="script.js"></script>
+    </body>
+</html>
+    
